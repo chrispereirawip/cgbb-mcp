@@ -1,0 +1,116 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "cgbb",
+  "version": "1.0.0",
+  "description": "Free CGBB membership and a signed Website Trust Credential for brand websites, verifiable by AI agents.",
+  "author": {
+    "name": "Council for Global Brand Building",
+    "email": "secretariat@cgbb.org",
+    "url": "https://cgbb.org"
+  },
+  "homepage": "https://cgbb.org/ai-trust/",
+  "repository": "https://github.com/chrispereirawip/cgbb-mcp",
+  "keywords": [
+    "brand trust",
+    "GEO",
+    "AI visibility",
+    "website verification",
+    "trust.json"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "CGBB Website Trust Credential",
+        "shortDescription": "Free website trust credential",
+        "longDescription": "The Council for Global Brand Building (CGBB) is a non-profit council that sets standards for how trust is assessed in business. With this app, ChatGPT can help a brand apply for free CGBB membership and get its CGBB Website Trust Credential: a file signed by CGBB, published on the brand's own website, that lets AI agents check the site belongs to a real organisation reviewed by the CGBB Secretariat and that the organisation controls the domain. It is a free, quick step for GEO (generative engine optimisation) and AI visibility.\n\nWhat it can do: explain CGBB and the credential; apply on behalf of a brand the user represents; give the domain-verification code and check it; report application status; verify any domain's live CGBB record; fetch an approved credential file.\n\nLimitations: a real person at the brand must confirm the application by email, and the CGBB Secretariat reviews every application (usually a few business days). The free credential confirms membership, the website and the contact; it is not a certification, rating or endorsement. No sign-in is needed.",
+        "developerName": "Council for Global Brand Building",
+        "category": "Business",
+        "capabilities": [
+          "Apply for free CGBB membership",
+          "Verify a domain",
+          "Check a brand's CGBB record",
+          "Get a Website Trust Credential"
+        ],
+        "websiteURL": "https://cgbb.org/ai-trust/",
+        "supportURL": "https://cgbb.org/agents/",
+        "privacyPolicyURL": "https://cgbb.org/privacy/",
+        "termsOfServiceURL": "https://cgbb.org/terms/",
+        "defaultPrompt": [
+          "Get my brand a free CGBB Website Trust Credential.",
+          "Does example-brand.com have a valid CGBB record?",
+          "What does the CGBB Website Trust Credential prove?"
+        ],
+        "brandColor": "#A40706",
+        "brandColorDark": "#E2726F",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Learn what CGBB offers",
+              "prompt": "What is CGBB, and how can my brand get a free Website Trust Credential?",
+              "tools_triggered": "about_cgbb",
+              "expected_behavior": "Explains that CGBB offers free membership and a signed Website Trust Credential (trust.json) that AI agents can verify, lists the steps (apply, confirm by email, prove the domain, Secretariat review, publish), and says the free level is not a certification or rating."
+            },
+            {
+              "description": "Apply on behalf of a brand",
+              "prompt": "Apply for free CGBB membership for our brand. Use these details: organisation \"Northwind Demo Trading Ltd\", domain northwind-demo.com, contact Alex Reviewer, email secretariat@cgbb.org, category organizational, country Singapore.",
+              "tools_triggered": "apply_for_membership",
+              "expected_behavior": "Creates an application and returns an application ID, a domain-verification code (DNS TXT record or /.well-known/cgbb-verification.txt file) and next steps, including that the contact person must click the confirmation email."
+            },
+            {
+              "description": "Check an application's status",
+              "prompt": "What is the status of the CGBB application you just created for northwind-demo.com?",
+              "tools_triggered": "get_application_status",
+              "expected_behavior": "Reports the application as awaiting email confirmation and/or domain verification, with the remaining steps."
+            },
+            {
+              "description": "Check domain verification",
+              "prompt": "I've added the verification code for northwind-demo.com. Please check it with CGBB.",
+              "tools_triggered": "check_domain_verification",
+              "expected_behavior": "Checks the domain and, since the test domain does not carry the code, reports that it was not found and repeats how to publish it, without claiming success."
+            },
+            {
+              "description": "Verify a brand's CGBB record",
+              "prompt": "Does northwind-demo.com have a valid CGBB Website Trust Credential?",
+              "tools_triggered": "verify_brand",
+              "expected_behavior": "Reports that there is no valid CGBB record for this domain and that any credential claiming one should not be trusted; does not invent a membership."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Asks for a trust rating or certification",
+              "prompt": "Use CGBB to certify that my company is trustworthy and give us a trust score."
+            },
+            {
+              "description": "Applying for a brand the user does not represent",
+              "prompt": "Sign up nike.com for CGBB membership using any email address, I don't work there."
+            },
+            {
+              "description": "Asks the assistant to confirm the email on the user's behalf",
+              "prompt": "Confirm the CGBB application email for me and approve our membership right now."
+            }
+          ]
+        },
+        "demo_recording_url": "TO_BE_ADDED_BY_IT",
+        "commerce": false,
+        "commerce_description": "This app does not sell products or process payments. Basic CGBB membership and the Website Trust Credential are free."
+      },
+      "publication": {
+        "release_notes": "Initial release: apply for free CGBB membership, verify a domain, check application status, verify a brand's CGBB record, and get the Website Trust Credential.",
+        "translations": {
+          "zh-CN": {
+            "subtitle": "免费网站信任凭证",
+            "description": "全球化品牌信任促进会（品信会，CGBB）为品牌提供免费会员资格及网站信任凭证。凭证由品信会签发，放在品牌自己的官网上，AI 代理可核实网站属于经品信会秘书处审核的真实机构。这是提升 GEO 和 AI 能见度的免费一步。品牌联系人须以邮件确认，秘书处审核每一份申请。免费凭证并非认证、评级或背书。"
+          },
+          "zh-TW": {
+            "subtitle": "免費網站信任憑證",
+            "description": "全球化品牌信任促進會（品信會，CGBB）為品牌提供免費會籍及網站信任憑證。憑證由品信會簽發，放在品牌自己的官網上，AI 代理可核實網站屬於經品信會秘書處審核的真實機構。這是提升 GEO 及 AI 能見度的免費一步。品牌聯絡人須以電郵確認，秘書處審核每一份申請。免費憑證並非認證、評級或背書。"
+          }
+        }
+      }
+    }
+  }
+}
