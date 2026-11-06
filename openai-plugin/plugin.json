@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cgbb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Free CGBB membership and a signed Website Trust Credential for brand websites, verifiable by AI agents.",
   "author": {
     "name": "Council for Global Brand Building",
@@ -12,7 +12,6 @@
   "repository": "https://github.com/chrispereirawip/cgbb-mcp",
   "keywords": [
     "brand trust",
-    "GEO",
     "AI visibility",
     "website verification",
     "trust.json"
@@ -22,7 +21,7 @@
       "interface": {
         "displayName": "CGBB Website Trust Credential",
         "shortDescription": "Free website trust credential",
-        "longDescription": "The Council for Global Brand Building (CGBB) is a non-profit council that sets standards for how trust is assessed in business. With this app, ChatGPT can help a brand apply for free CGBB membership and get its CGBB Website Trust Credential: a file signed by CGBB, published on the brand's own website, that lets AI agents check the site belongs to a real organisation reviewed by the CGBB Secretariat and that the organisation controls the domain. It is a free, quick step for GEO (generative engine optimisation) and AI visibility.\n\nWhat it can do: explain CGBB and the credential; apply on behalf of a brand the user represents; give the domain-verification code and check it; report application status; verify any domain's live CGBB record; fetch an approved credential file.\n\nLimitations: a real person at the brand must confirm the application by email, and the CGBB Secretariat reviews every application (usually a few business days). The free credential confirms membership, the website and the contact; it is not a certification, rating or endorsement. No sign-in is needed.",
+        "longDescription": "The Council for Global Brand Building (CGBB) is a non-profit association, founded in Hong Kong, that sets standards for how trust is assessed in business. With this app, ChatGPT can help a brand apply for free CGBB membership and get its CGBB Website Trust Credential: a file signed by CGBB, published on the brand's own website, that lets AI agents check the site belongs to a real organisation reviewed by the CGBB Secretariat and that the organisation controls the domain. CGBB is working to build trust in an objective, verifiable way.\n\nWhat it can do: explain CGBB and the credential; apply on behalf of a brand the user represents; give the domain-verification code and check it; report application status; verify any domain's live CGBB record; fetch an approved credential file.\n\nLimitations: a real person at the brand must confirm the application by email, and the CGBB Secretariat reviews every application (usually 1–3 business days). The free credential confirms membership, the website and the contact; it is not a certification, rating or endorsement. No sign-in is needed.",
         "developerName": "Council for Global Brand Building",
         "category": "Business",
         "capabilities": [
@@ -103,11 +102,11 @@
         "translations": {
           "zh-CN": {
             "subtitle": "免费网站信任凭证",
-            "description": "全球化品牌信任促进会（品信会，CGBB）为品牌提供免费会员资格及网站信任凭证。凭证由品信会签发，放在品牌自己的官网上，AI 代理可核实网站属于经品信会秘书处审核的真实机构。这是提升 GEO 和 AI 能见度的免费一步。品牌联系人须以邮件确认，秘书处审核每一份申请。免费凭证并非认证、评级或背书。"
+            "description": "全球化品牌信任促进会（品信会，CGBB）为品牌提供免费会员资格及网站信任凭证。凭证由品信会签发，放在品牌自己的官网上，AI 代理可核实网站属于经品信会秘书处审核的真实机构。品牌联系人须以邮件确认，秘书处审核每一份申请。免费凭证并非认证、评级或背书。"
           },
           "zh-TW": {
             "subtitle": "免費網站信任憑證",
-            "description": "全球化品牌信任促進會（品信會，CGBB）為品牌提供免費會籍及網站信任憑證。憑證由品信會簽發，放在品牌自己的官網上，AI 代理可核實網站屬於經品信會秘書處審核的真實機構。這是提升 GEO 及 AI 能見度的免費一步。品牌聯絡人須以電郵確認，秘書處審核每一份申請。免費憑證並非認證、評級或背書。"
+            "description": "全球化品牌信任促進會（品信會，CGBB）為品牌提供免費會籍及網站信任憑證。憑證由品信會簽發，放在品牌自己的官網上，AI 代理可核實網站屬於經品信會秘書處審核的真實機構。品牌聯絡人須以電郵確認，秘書處審核每一份申請。免費憑證並非認證、評級或背書。"
           }
         }
       }
