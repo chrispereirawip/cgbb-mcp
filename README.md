@@ -2,7 +2,7 @@
 
 **Free trust.json for any brand's website: a quick GEO and AI-trust win.**
 
-The [Council for Global Brand Building](https://cgbb.org) (CGBB, 品信會) offers brands free membership and a signed **CGBB Member trust.json**. Published at `https://yourdomain.com/.well-known/trust.json`, it lets any AI agent check, with one request to the CGBB registry, that the website belongs to a real organisation reviewed by the CGBB Secretariat and that the organisation controls the domain.
+The [Council for Global Brand Building](https://cgbb.org) (CGBB, 品信會) offers brands free membership and a signed **CGBB Website Trust Credential** (trust.json). Published at `https://yourdomain.com/.well-known/trust.json`, it lets any AI agent check, with one request to the CGBB registry, that the website belongs to a real organisation reviewed by the CGBB Secretariat. People can check any website at https://cgbb.org/verify/ and that the organisation controls the domain.
 
 AI agents can apply on a brand's behalf through this remote MCP server or the HTTP API. A real person at the brand confirms by email, and the Secretariat reviews every application.
 
@@ -35,12 +35,12 @@ Claude, ChatGPT, Cursor and other MCP clients: add a custom connector with the U
 
 | Tool | What it does |
 |---|---|
-| `about_cgbb` | What CGBB is, what the free trust.json contains, how it supports a brand's GEO and AI trust, and how to apply |
+| `about_cgbb` | What CGBB is, what the free Website Trust Credential contains and how to apply |
 | `apply_for_membership` | Apply for free CGBB membership on behalf of a brand; returns an application id, a domain-verification token and next steps |
 | `check_domain_verification` | Check the domain token (DNS TXT record or `/.well-known/cgbb-verification.txt`) |
 | `get_application_status` | Status and next steps for an application |
 | `verify_brand` | Live CGBB record for a domain, and whether a genuine trust.json is published |
-| `get_trust_file` | The signed CGBB Member trust.json for an approved domain |
+| `get_trust_file` | The signed Website Trust Credential (trust.json) for an approved domain |
 
 ## Steps
 
